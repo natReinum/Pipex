@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 14:37:33 by nmunier           #+#    #+#             */
-/*   Updated: 2025/02/21 19:06:49 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/03/27 16:14:58 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ t_command	*parse_cmd(int argc, char **argv, t_family *family, t_error *err)
 	char		**path_dirs;
 	t_command	*cmd_chained_list;
 
+	if (*err != success)
+		return (NULL);
 	i = 1;
 	path_line = get_path(family->env);
 	path_dirs = NULL;

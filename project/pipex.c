@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:13:29 by nmunier           #+#    #+#             */
-/*   Updated: 2025/03/19 19:24:39 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/03/27 16:15:39 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static t_family	*init_pipex(char **env, t_error *err, int argc)
 	family->env = env;
 	family->here_doc = 0;
 	family->commands = NULL;
+	family->fd = NULL;
 	family->i_fd = 0;
 	family->i_fd_max = argc - 4;
 	if (family->i_fd_max > 0)
@@ -54,7 +55,8 @@ void	perform_illegal_act_on_family(t_family **family)
 		ft_close(&(*family)->fd[i][1]);
 		free((*family)->fd[i++]);
 	}
-	free((*family)->fd);
+	if ((*family)->fd)
+		free((*family)->fd);
 	free(*family);
 }
 
