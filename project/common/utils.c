@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 17:49:22 by nmunier           #+#    #+#             */
-/*   Updated: 2025/03/27 14:15:44 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/03/27 14:51:17 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,6 @@ int	angry_parent_wait_for_children(t_family *family)
 		{
 			if (WIFEXITED(status))
 				exit_status = WEXITSTATUS(status);
-			else if (WIFSIGNALED(status))
-				exit_status = 128 + WTERMSIG(status);
 		}
 	}
 	return (exit_status);
