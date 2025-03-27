@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 20:16:21 by nmunier           #+#    #+#             */
-/*   Updated: 2025/03/27 14:10:29 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/03/27 15:56:24 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	assign_outfile_bonus(const char *path, t_family *family)
 		fd = open(path, O_WRONLY | O_CREAT | O_APPEND, 0644);
 	if (access(path, W_OK) == -1)
 	{
-		ft_close(&fd)
+		ft_close(&fd);
 		return (-1);
 	}
 	return (fd);

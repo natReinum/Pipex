@@ -43,7 +43,7 @@ void	perform_illegal_act_on_family(t_family **family)
 {
 	int	i;
 
-	if (!*family)
+	if (!family || !*family)
 		return ;
 	if ((*family)->commands)
 		free_commands((*family)->commands);

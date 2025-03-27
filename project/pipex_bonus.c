@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 19:01:50 by nmunier           #+#    #+#             */
-/*   Updated: 2025/03/25 17:04:01 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/03/27 16:06:31 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	free_fds(t_family *family)
 void	perform_illegal_act_on_family_2(t_family **family, int del_here, \
 										int close_fds)
 {
-	if (!*family)
+	if (!family || !*family)
 		return ;
 	if ((*family)->here_doc && del_here)
 		delete_here_doc(*family);
@@ -95,8 +95,7 @@ int	main(int argc, char **argv, char **env)
 	int			params[2];
 
 	if (!check_inp(argc, argv, &here_doc, files))
-		return (perform_illegal_act_on_family_2(&family, 1, 1), \
-				handle_error(&error));
+		return (-42);
 	params[0] = here_doc;
 	params[1] = argc;
 	family = init_pipex(env, &error, params, files);
