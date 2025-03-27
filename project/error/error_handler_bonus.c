@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 22:01:40 by nmunier           #+#    #+#             */
-/*   Updated: 2025/02/27 13:38:06 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/03/27 19:11:09 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ t_error	handle_error(t_error *error)
 	if (*error == malloc_err)
 		return (write(2, "a malloc error occurred!\n", 25), malloc_err);
 	if (*error == param_count_err)
-		return (write(2, "syntax: ./pipex (file1 | here_doc) cmd1 cmd2 ... " \
-				"cmdn file2\n", 60), param_count_err);
+		return (write(2, "syntax: ./pipex (infile | here_doc limiter) cmd1" \
+				   " cmd2 ... cmdn outfile\n", 71), param_count_err);
 	if (*error == infile_fd_err)
 		return (perror("Could not open or read the infile"), \
 				reset_error(error));
