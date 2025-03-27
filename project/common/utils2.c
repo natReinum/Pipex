@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 16:30:36 by nmunier           #+#    #+#             */
-/*   Updated: 2025/03/27 14:25:39 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/03/27 18:56:02 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,17 @@ int	assign_outfile(const char *path)
 		return (handle_error(&(t_error){infile_fd_err}), -1);
 	}
 	return (fd);
+}
+
+void	fill_fd_array(t_family *family)
+{
+	int	i;
+
+	i = 0;
+	while (i < family->i_fd_max)
+	{
+		family->fd[i][0] = -1;
+		family->fd[i][1] = -1;
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:13:29 by nmunier           #+#    #+#             */
-/*   Updated: 2025/03/27 16:15:39 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/03/27 18:57:16 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int	main(int argc, char **argv, char **env)
 	if (!family)
 		return (perform_illegal_act_on_family(&family), \
 				handle_error(&error));
+	fill_fd_array(family);
 	error = check_input(argc, argv, family);
 	family->commands = parse_cmd(argc, argv, family, &error);
 	if (error == param_count_err)

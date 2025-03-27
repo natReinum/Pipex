@@ -25,6 +25,5 @@ void	add_command_to_list(t_command **cmd_list, t_command *command);
 void	conceive_forgotten_children(t_family *family, t_command *start, \
 									t_command *end);
 int		assign_infile_bonus(const char *path, t_family *family);
-void	fill_fd_array(t_family *family);
 
 #endif // UTILS_BONUS_H

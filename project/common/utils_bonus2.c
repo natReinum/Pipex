@@ -29,16 +29,3 @@ int	assign_infile_bonus(const char *path, t_family *family)
 	}
 	return (fd);
 }
-
-void	fill_fd_array(t_family *family)
-{
-	int	i;
-
-	i = 0;
-	while (i < family->i_fd_max)
-	{
-		family->fd[i][0] = -1;
-		family->fd[i][1] = -1;
-		i++;
-	}
-}
