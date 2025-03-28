@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:47:30 by nmunier           #+#    #+#             */
-/*   Updated: 2025/03/27 14:16:16 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/03/27 23:11:12 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	execute_first_child(t_family *family, t_command *command)
 	int	fd;
 
 	ft_close(&family->fd[0][0]);
-	fd = assign_infile(family->infile);
+	fd = family->fd_in;
 	if (dup2(fd, STDIN_FILENO) == -1)
 	{
 		perror("dup2 - STDIN");

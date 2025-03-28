@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 17:49:22 by nmunier           #+#    #+#             */
-/*   Updated: 2025/03/27 14:51:17 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/03/27 23:10:22 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	conceive_better_child(t_family *family, t_command *cmd)
 	pid_t	pid;
 
 	error = success;
+	family->fd_in = assign_infile(family->infile);
 	if (pipe(family->fd[family->i_fd]) == -1)
 		error = pipe_err;
 	pid = fork();
@@ -109,6 +110,10 @@ int	angry_parent_wait_for_children(t_family *family)
 
 	exit_status = 0;
 	pid = 1;
+	if (ft_strncmp(family->infile, "/dev/urandom", 13) == 0 \
+		|| ft_strncmp(family->infile, "/dev/random", 12) == 0)
+		(ft_close(&family->fd_in), ft_close(&family->fd[0][0]), \
+			ft_close(&family->fd[0][1]));
 	while (pid > 0)
 	{
 		pid = waitpid(-1, &status, 0);

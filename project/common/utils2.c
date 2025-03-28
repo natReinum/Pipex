@@ -43,7 +43,7 @@ int	assign_outfile(const char *path)
 	if (access(path, W_OK) == -1)
 	{
 		ft_close(&fd);
-		return (handle_error(&(t_error){infile_fd_err}), -1);
+		return (handle_error(&(t_error){outfile_fd_err}), -1);
 	}
 	return (fd);
 }

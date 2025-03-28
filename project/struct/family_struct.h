@@ -22,6 +22,7 @@ typedef struct s_family
 	char		**env;
 	int			here_doc;
 	char		*infile;
+	int			fd_in;
 	char		*outfile;
 	int			**fd;
 	int			i_fd;
