@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 17:49:22 by nmunier           #+#    #+#             */
-/*   Updated: 2025/03/27 23:10:22 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/03/29 16:31:12 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	execute_cmd(t_command *cmd, char **env)
 	}
 	else
 		perror("command not found (empty)");
-	return (errno);
+	return (127);
 }
 
 char	**get_cmd_args(char **cmd_args)

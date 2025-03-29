@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 15:13:29 by nmunier           #+#    #+#             */
-/*   Updated: 2025/03/27 18:57:16 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/03/29 16:18:31 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	perform_illegal_act_on_family(t_family **family)
 	}
 	if ((*family)->fd)
 		free((*family)->fd);
+	ft_close(&(*family)->fd_in);
 	free(*family);
 }
 

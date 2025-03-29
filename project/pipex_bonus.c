@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 19:01:50 by nmunier           #+#    #+#             */
-/*   Updated: 2025/03/27 16:06:31 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/03/29 16:19:15 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static void	free_fds(t_family *family)
 			ft_close(&family->fd[i][1]);
 		free(family->fd[i++]);
 	}
+	ft_close(&family->fd_in);
 	free(family->fd);
 }
 
