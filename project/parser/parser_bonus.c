@@ -14,6 +14,8 @@
 
 char	*get_path(char **env)
 {
+	if (!env || !*env)
+		return (NULL);
 	int (i) = 0;
 	while (env[i])
 	{

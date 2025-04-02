@@ -35,7 +35,8 @@ static char	*get_cmd_path(char **cmd, char **path_dirs, char *cmd_base)
 	if (!array || !array[0])
 		return (ft_free_array(&array), NULL);
 	tmp = ft_strdup(array[0]);
-	if (access(tmp, X_OK) == 0 || ft_strchr(tmp, '/') != 0)
+	if (access(tmp, X_OK) == 0 || ft_strchr(tmp, '/') != 0 \
+		|| !path_dirs || !*path_dirs)
 		return (free_array(&array), tmp);
 	(free(tmp), free_array(&array));
 	while (path_dirs[i])
@@ -105,7 +106,7 @@ t_command	*parse_cmd(int argc, char **argv, t_family *family, t_error *err)
 	if (path_line)
 		free(path_line);
 	cmd_chained_list = NULL;
-	while (path_dirs && (*err == success || *err == path_err) \
+	while ((*err == success || *err == path_err) \
 			&& ++i < argc - 1)
 		new_command(argv[i], &cmd_chained_list, path_dirs, err);
 	free_array(&path_dirs);

@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 23:01:22 by nmunier           #+#    #+#             */
-/*   Updated: 2025/03/19 19:55:49 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/04/02 14:46:53 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static char	*get_cmd_path(char **cmd, char **path_dirs, char *cmd_base)
 	if (!array || !array[0])
 		return (ft_free_array(&array), NULL);
 	tmp = ft_strdup(array[0]);
-	if (access(tmp, X_OK) == 0 || ft_strchr(tmp, '/') != 0)
+	if (access(tmp, X_OK) == 0 || ft_strchr(tmp, '/') != 0 \
+		|| !path_dirs || !*path_dirs)
 		return (ft_free_array(&array), tmp);
 	(free(tmp), ft_free_array(&array));
 	while (path_dirs[i])
@@ -87,7 +88,7 @@ t_command	*parse_cmd(int argc, char **argv, t_family *family, t_error *err)
 	if (path_line)
 		free(path_line);
 	cmd_chained_list = NULL;
-	while (path_dirs && (*err == success || *err == path_err) \
+	while ((*err == success || *err == path_err) \
 			&& ++i < argc - 1)
 		new_command(argv[i], &cmd_chained_list, path_dirs, err);
 	ft_free_array(&path_dirs);

@@ -6,7 +6,7 @@
 /*   By: nmunier <nmunier@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 17:46:45 by nmunier           #+#    #+#             */
-/*   Updated: 2025/03/18 17:37:57 by nmunier          ###   ########.fr       */
+/*   Updated: 2025/04/02 14:37:12 by nmunier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 char	*get_path(char **env)
 {
+	if (!env || !*env)
+		return (NULL);
 	int (i) = 0;
 	while (env[i])
 	{
